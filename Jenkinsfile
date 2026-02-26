@@ -15,22 +15,17 @@ pipeline {
     }
 
     stage('Approve Apply') {
-      when { branch 'main' }
       steps {
         input message: "Deploy EC2 nginx from Terraform? (Apply)"
       }
     }
 
     stage('Terraform Apply') {
-      when { branch 'main' }
       steps { sh 'terraform apply -auto-approve' }
     }
 
     stage('Show Outputs') {
-      when { branch 'main' }
-      steps {
-        sh 'terraform output'
-      }
+      steps { sh 'terraform output' }
     }
   }
 }
