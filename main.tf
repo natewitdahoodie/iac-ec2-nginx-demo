@@ -73,7 +73,7 @@ resource "aws_instance" "web" {
               set -eux
               apt-get update -y
               apt-get install -y nginx
-              echo "Hello from Nate's Terraform EC2 web server 👋" > /var/www/html/index.html
+              echo "Hello from Nate's Terraform EC2 web server deployed from jenkins! "> /var/www/html/index.html
               systemctl enable nginx
               systemctl restart nginx
               EOF
